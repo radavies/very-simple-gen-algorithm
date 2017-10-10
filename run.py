@@ -10,7 +10,7 @@ def run():
     force = brute_force.BruteForce(text)
     brute_force_result = force.start()
 
-    gen = algorithm.Algorithm(text, 4, 10)
+    gen = algorithm.Algorithm(text, 1000)
     gen_result = gen.start()
 
     print("Done...")
