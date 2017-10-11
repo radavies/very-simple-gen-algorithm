@@ -31,8 +31,10 @@ class Algorithm:
 
             if self.evaluate():
                 solved = True
+            else:
+                self.generations = self.generations + 1
 
-            self.generations = self.generations + 1
+        return (self.generations * self.population_size), self.run_time
 
     def generate_initial_population(self):
         for counter in range(0, self.population_size):
@@ -41,6 +43,8 @@ class Algorithm:
 
     def generate_new_generation(self):
         self.population.sort(key=lambda item: item.fitness, reverse=True)
+
+        print("Last generation highest fitness {0}".format(self.population[0].fitness))
 
         to_reproduce = self.population[0:int(len(self.population) / 2)]
 
